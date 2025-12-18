@@ -1,4 +1,4 @@
-// Hardcoded for production stability
+// Hardcoded: Always use production backend (as requested)
 const API_URL = 'https://hrmpasiware.ranx24.com/api';
 
 // Get auth token from localStorage
