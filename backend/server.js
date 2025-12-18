@@ -8,8 +8,13 @@ connectDB();
 
 const app = express();
 
-// Middleware
-app.use(cors());
+// Middleware - CORS Configuration
+app.use(cors({
+    origin: '*', // Allow all origins (can restrict later)
+    credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization']
+}));
 app.use(express.json({ limit: '10mb' })); // Increased for face photos
 
 // Routes
