@@ -2,7 +2,7 @@ import { createContext, useContext, useState, useEffect } from 'react';
 
 const AuthContext = createContext(null);
 
-const API_URL = 'http://hrmpasiware.ranx24.com/api';
+const API_URL = 'https://kraafilcinema.com/api';
 
 export function AuthProvider({ children }) {
     const [admin, setAdmin] = useState(null);
