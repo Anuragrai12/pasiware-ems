@@ -1,5 +1,5 @@
 // Hardcoded: Always use production backend (as requested)
-const API_URL = 'http://k84kw8wk4o04c0k0wkckw4kc.72.61.233.226.sslip.io/api';
+const API_URL = 'https://kraafilcinema.com/api';
 
 // Get auth token from localStorage
 const getToken = () => localStorage.getItem('token');
