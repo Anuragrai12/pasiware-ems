@@ -1,4 +1,5 @@
-const API_URL = import.meta.env.VITE_API_URL || 'https://hrmpasiware.ranx24.com/api';
+// Hardcoded for production stability
+const API_URL = 'https://hrmpasiware.ranx24.com/api';
 
 // Get auth token from localStorage
 const getToken = () => localStorage.getItem('token');
