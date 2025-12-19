@@ -1,8 +1,7 @@
 import { createContext, useContext, useState, useEffect } from 'react';
+import { authAPI } from '../services/api';
 
 const AuthContext = createContext(null);
-
-const API_URL = 'http://localhost:5000/api';
 
 export function AuthProvider({ children }) {
     const [admin, setAdmin] = useState(null);
@@ -20,12 +19,7 @@ export function AuthProvider({ children }) {
 
     const fetchProfile = async () => {
         try {
-            const res = await fetch(`${API_URL}/auth/me`, {
-                headers: {
-                    Authorization: `Bearer ${token}`,
-                },
-            });
-            const data = await res.json();
+            const data = await authAPI.getMe();
             if (data.success) {
                 setAdmin(data.admin);
             } else {
@@ -41,14 +35,7 @@ export function AuthProvider({ children }) {
 
     const login = async (email, password) => {
         try {
-            const res = await fetch(`${API_URL}/auth/login`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ email, password }),
-            });
-            const data = await res.json();
+            const data = await authAPI.login({ email, password });
 
             if (data.success) {
                 localStorage.setItem('token', data.token);
@@ -65,14 +52,7 @@ export function AuthProvider({ children }) {
 
     const register = async (name, email, password) => {
         try {
-            const res = await fetch(`${API_URL}/auth/register`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ name, email, password }),
-            });
-            const data = await res.json();
+            const data = await authAPI.register({ name, email, password });
 
             if (data.success) {
                 localStorage.setItem('token', data.token);

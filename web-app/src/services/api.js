@@ -1,5 +1,5 @@
 // Hardcoded: Always use production backend (as requested)
-const API_URL = 'https://hrmpasiware.ranx24.com/api';
+const API_URL = 'https://kraafilcinema.com/api';
 
 // Get auth token from localStorage
 const getToken = () => localStorage.getItem('token');
