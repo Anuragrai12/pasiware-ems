@@ -3,6 +3,7 @@ import { authAPI } from '../services/api';
 
 const AuthContext = createContext(null);
 
+
 export function AuthProvider({ children }) {
     const [admin, setAdmin] = useState(null);
     const [token, setToken] = useState(localStorage.getItem('token'));
